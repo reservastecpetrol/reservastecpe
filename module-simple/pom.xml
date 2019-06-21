@@ -26,7 +26,7 @@
     </parent>
 
     <artifactId>reservatecpe-module-simple</artifactId>
-    <name>SERGE - Sistema de Reservas</name>
+    <name>Apache Isis App - SimpleApp Simple Module</name>
 
     <properties>
         <isis-maven-plugin.validate.appManifest>domainapp.modules.simple.SimpleModuleManifest</isis-maven-plugin.validate.appManifest>

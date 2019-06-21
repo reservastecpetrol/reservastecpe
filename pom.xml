@@ -29,7 +29,7 @@
     <artifactId>reservatecpe</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>SERGE - Sistema de Reservas</name>
+    <name>Apache Isis App - SimpleApp Parent</name>
 
     <packaging>pom</packaging>
 
