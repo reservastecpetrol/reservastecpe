@@ -26,8 +26,7 @@
     </parent>
 
     <artifactId>reservatecpe-webapp</artifactId>
-    <name>Apache Isis App - SimpleApp Webapp</name>
-
+    <name>SERGE - Sistema de Reservas</name>
     <description>This assemblies and runs both the Wicket viewer and the Restfulobjects viewer in a single webapp configured to run using the datanucleus object store.</description>
 
     <packaging>war</packaging>
@@ -114,6 +113,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>reservatecpe-application</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <!-- isis -->
@@ -211,17 +211,18 @@
             <id>jdbc-postgres</id>
             <activation>
                 <property>
-                    <name>jdbc-postgres</name>
+                    <name>!skip.jdbc-postgres</name>
                 </property>
             </activation>
             <dependencies>
                 <dependency>
-                    <groupId>postgresql</groupId>
+                    <groupId>org.postgresql</groupId>
                     <artifactId>postgresql</artifactId>
-                    <version>9.1-901.jdbc4</version>
+                    <version>42.2.5</version>
                 </dependency>
             </dependencies>
         </profile>
+        <!--
         <profile>
             <id>jdbc-mssql</id>
             <activation>
@@ -229,15 +230,21 @@
                     <name>jdbc-mssql</name>
                 </property>
             </activation>
+
             <dependencies>
                <dependency>
                    <groupId>com.microsoft.sqlserver</groupId>
                    <artifactId>mssql-jdbc</artifactId>
                    <version>6.4.0.jre8</version>
                </dependency>
+                <dependency>
+                    <groupId>postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <version>10.8-1.jdbc4</version>
+                </dependency>
             </dependencies>
         </profile>
-
+ this app -->
         <profile>
             <id>skinny-war</id>
             <activation>
