@@ -162,17 +162,29 @@
                                 <artifactId>${project.parent.artifactId}-application</artifactId>
                                 <version>${project.version}</version>
                             </dependency>
+
+
                             <dependency>
                                 <groupId>org.hsqldb</groupId>
                                 <artifactId>hsqldb</artifactId>
                                 <version>2.3.1</version>
                             </dependency>
+
+                            <!--
+                            <dependency>
+                                <groupId>org.postgresql</groupId>
+                                <artifactId>postgresql</artifactId>
+                                <version>42.2.5</version>
+                            </dependency>-->
+
                             <!-- workaround to avoid conflict with plexus-default -->
                         </dependencies>
                     </plugin>
                 </plugins>
             </build>
         </profile>
+        <!--Esto debo comentarlo -->
+
         <profile>
             <id>jdbc-hsqldb</id>
             <activation>
@@ -187,6 +199,7 @@
                 </dependency>
             </dependencies>
         </profile>
+
         <profile>
             <id>jdbc-logging</id>
             <activation>
@@ -207,6 +220,7 @@
                 </dependency>
             </dependencies>
         </profile>
+
         <profile>
             <id>jdbc-postgres</id>
             <activation>
@@ -216,12 +230,14 @@
             </activation>
             <dependencies>
                 <dependency>
-                    <groupId>postgresql</groupId>
+                    <groupId>org.postgresql</groupId>
                     <artifactId>postgresql</artifactId>
-                    <version>9.1-901.jdbc4</version>
+                    <version>42.2.5</version>
                 </dependency>
             </dependencies>
         </profile>
+<!-- Esto debo comentarlo-->
+
         <profile>
             <id>jdbc-mssql</id>
             <activation>
@@ -303,5 +319,4 @@
         </profile>
 
     </profiles>
-
 </project>

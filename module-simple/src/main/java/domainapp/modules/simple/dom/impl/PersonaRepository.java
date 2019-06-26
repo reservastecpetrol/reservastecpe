@@ -19,7 +19,7 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 
 @DomainService(
         nature = NatureOfService.VIEW_MENU_ONLY,
-        objectType = "simple.PersonaMenu",
+        objectType = "impl.PersonaMenu",
         repositoryFor = Persona.class
 )
 @DomainServiceLayout(
@@ -71,7 +71,4 @@ public class PersonaRepository {
 
     @javax.inject.Inject
     IsisJdoSupport isisJdoSupport;
-
-    @javax.inject.Inject
-    org.apache.isis.applib.DomainObjectContainer container;
 }

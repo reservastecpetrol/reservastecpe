@@ -36,7 +36,7 @@ import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_Y
 
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
-        schema = "simple",
+        schema = "impl",
         table = "Persona"
 )
 @DatastoreIdentity(
@@ -89,7 +89,7 @@ public class Persona implements Comparable<Persona> {
     @Property(editing = Editing.ENABLED)
     private String direccion;
 
-    @javax.jdo.annotations.Column()
+    @javax.jdo.annotations.Column(allowsNull = "false", length = 14)
     @lombok.NonNull
     @Property(editing = Editing.ENABLED)
     private int telefono;
@@ -97,6 +97,7 @@ public class Persona implements Comparable<Persona> {
     @javax.jdo.annotations.Column()
     @lombok.NonNull
     @Property(editing = Editing.ENABLED)
+    @Title()
     private Date fechaNacimiento;
 
     Persona(String nombre,String apellido){

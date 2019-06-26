@@ -27,7 +27,7 @@ public class SimpleModuleManifest extends AppManifestAbstract2 {
 
     public static final Builder BUILDER = Builder.forModule(new SimpleModule())
             .withConfigurationProperty("isis.persistor.datanucleus.impl.datanucleus.schema.autoCreateAll","true")
-            .withConfigurationProperty("isis.persistor.datanucleus.impl.datanucleus.identifier.case","MixedCase")
+            .withConfigurationProperty("isis.persistor.datanucleus.impl.datanucleus.identifier.case","LowerCase")
             ;
 
     public SimpleModuleManifest() {
