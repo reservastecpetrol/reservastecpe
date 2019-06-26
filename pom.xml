@@ -163,6 +163,7 @@
                 <directory>target-ide</directory>
                 <plugins>
                     <!-- eclipse doesn't seem to support maven mixins config, so repeat here -->
+                    <!-- eclipse doesn't seem to support maven mixins config, so comentario de prueba here -->
                     <plugin>
                         <artifactId>maven-compiler-plugin</artifactId>
                         <configuration>
