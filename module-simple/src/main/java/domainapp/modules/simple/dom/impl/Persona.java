@@ -15,7 +15,7 @@ import javax.jdo.annotations.VersionStrategy;
 import com.google.common.collect.ComparisonChain;
 
 import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.BookmarkPolicy;
+import org.apache.isis.applib.annotation.Auditing;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Editing;
@@ -33,6 +33,7 @@ import lombok.AccessLevel;
 import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
+
 
 @PersistenceCapable(
         identityType = IdentityType.DATASTORE,
@@ -62,12 +63,14 @@ import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_Y
                         + "WHERE nombre == :nombre ")
 })
 @Unique(name = "Persona_nombre_UNQ", members = { "nombre" })
-@DomainObject(
+/*@DomainObject(
         editing = Editing.DISABLED
 )
 @DomainObjectLayout(
         bookmarking = BookmarkPolicy.AS_ROOT
-)
+)*/
+@DomainObject(auditing = Auditing.ENABLED)
+@DomainObjectLayout()  // causes UI events to be triggered
 @lombok.Getter @lombok.Setter
 @lombok.RequiredArgsConstructor
 public class Persona implements Comparable<Persona> {
@@ -89,7 +92,7 @@ public class Persona implements Comparable<Persona> {
     @Property(editing = Editing.ENABLED)
     private String direccion;
 
-    @javax.jdo.annotations.Column(allowsNull = "false", length = 14)
+    @javax.jdo.annotations.Column()
     @lombok.NonNull
     @Property(editing = Editing.ENABLED)
     private int telefono;
@@ -97,7 +100,6 @@ public class Persona implements Comparable<Persona> {
     @javax.jdo.annotations.Column()
     @lombok.NonNull
     @Property(editing = Editing.ENABLED)
-    @Title()
     private Date fechaNacimiento;
 
     Persona(String nombre,String apellido){
